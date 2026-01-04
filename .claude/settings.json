@@ -1,0 +1,20 @@
+{
+  "projectType": "nextjs",
+  "framework": "next-16",
+  "typescript": true,
+  "styling": "tailwind-v4",
+  "contentFormat": "mdx",
+  "testing": "vitest",
+  "formatting": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true
+  },
+  "conventions": {
+    "components": "named-exports",
+    "serverFirst": true,
+    "semanticHtml": true
+  }
+}
+

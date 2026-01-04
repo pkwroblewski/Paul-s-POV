@@ -1,0 +1,2 @@
+export { InlineNewsletter } from './InlineNewsletter';
+
