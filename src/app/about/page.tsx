@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Product designer and writer exploring the intersection of technology and human psychology.',
+  description: 'An experienced professional exploring the transformational changes of AI. Sharing notes, discoveries, and lessons from the journey.',
 };
 
 const socialLinks = [
@@ -26,7 +26,7 @@ export default function AboutPage() {
           <div className="relative order-2 md:order-1 bg-void-light p-4 border border-white/10">
             <div className="aspect-[3/4] relative overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000"
                 alt="Portrait"
                 fill
                 className="object-cover grayscale mix-blend-luminosity opacity-80 hover:opacity-100 transition-all duration-500"
@@ -34,10 +34,6 @@ export default function AboutPage() {
               />
               {/* Gradient overlay */}
               <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-void-light to-transparent" />
-              {/* Name overlay */}
-              <div className="absolute bottom-4 left-4 font-header text-white text-2xl">
-                Paul.V
-              </div>
             </div>
           </div>
 
@@ -60,13 +56,16 @@ export default function AboutPage() {
             {/* Bio paragraphs */}
             <div className="space-y-6 font-mono text-dust leading-relaxed text-sm">
               <p className="border-l border-white/10 pl-6 hover:border-safety transition-colors">
-                I am a product designer and writer based in San Francisco. My work explores the fuzzy edge where technology meets human psychology.
+                I&apos;m an experienced professional based in the Benelux region. My career has been shaped by years in corporate and consulting environments—structured, strategic, and always moving at pace.
               </p>
               <p className="border-l border-white/10 pl-6 hover:border-safety transition-colors">
-                For the past decade, I&apos;ve helped build products at companies like Stripe and Linear, focusing on tools that respect user attention rather than exploiting it.
+                But something shifted. The transformational changes happening with AI felt too significant to observe from the sidelines. Not just important—fascinating. The kind of shift that rewires how we work, create, and think.
               </p>
               <p className="border-l border-white/10 pl-6 hover:border-safety transition-colors">
-                This site is my digital garden—a place where I cultivate ideas about design ethics, slow technology, and the creative process.
+                So I embarked on a new journey. I&apos;m still relatively new to this world—a novice, really—but that&apos;s precisely why I&apos;m documenting it. This site is where I share my notes, discoveries, and examples as I learn.
+              </p>
+              <p className="border-l border-white/10 pl-6 hover:border-safety transition-colors">
+                If you&apos;re curious about AI&apos;s impact on business, content, and strategy, maybe my journey can offer some useful signposts along the way.
               </p>
             </div>
 
