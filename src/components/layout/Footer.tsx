@@ -8,7 +8,7 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-  { label: 'RSS', href: '/rss' },
+  // { label: 'RSS', href: '/rss' },  // TODO: Implement RSS feed
   { label: 'Styleguide', href: '/styleguide' },
   { label: 'Contact', href: '/contact' },
 ];
