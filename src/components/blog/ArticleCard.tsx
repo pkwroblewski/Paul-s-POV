@@ -14,7 +14,7 @@ interface ArticleCardProps {
  * ArticleCard Component
  * 
  * Displays a blog post preview card with optional featured image.
- * Matches the original Gemini design with grayscale images that
+ * Matches the original Gemini design with images that
  * colorize on hover, glow effects, and smooth transitions.
  */
 export function ArticleCard({ post, variant = 'default', className }: ArticleCardProps) {
@@ -54,7 +54,7 @@ export function ArticleCard({ post, variant = 'default', className }: ArticleCar
             src={post.featuredImage}
             alt={post.title}
             fill
-            className="object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+            className="object-cover transition-all duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {/* Orange overlay on hover */}
