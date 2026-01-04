@@ -27,7 +27,7 @@ export default function AboutPage() {
             <div className="flex items-center gap-3 mb-8">
               <span className="w-2 h-2 bg-safety" />
               <span className="font-mono text-xs text-safety uppercase tracking-widest">
-                User_Profile_01
+                Paul's_Profile_01
               </span>
               <div className="h-px bg-white/10 flex-grow" />
             </div>
