@@ -15,10 +15,6 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const scrollToNewsletter = () => {
-    document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-void/90 backdrop-blur-md border-b border-white/10">
@@ -49,12 +45,12 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <button
-            onClick={scrollToNewsletter}
+          <Link
+            href="/writing"
             className="ml-6 px-5 py-2.5 border border-white/20 text-safety text-xs font-mono uppercase tracking-widest hover:bg-safety hover:text-void hover:border-safety transition-all shadow-glow"
           >
-            Signal_In
-          </button>
+            Read_Now
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -80,12 +76,13 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={scrollToNewsletter}
+            <Link
+              href="/writing"
+              onClick={() => setIsMenuOpen(false)}
               className="text-xl font-header text-safety text-left mt-4 border border-safety/30 p-4"
             >
-              Signal_In
-            </button>
+              Read_Now
+            </Link>
           </div>
         )}
       </div>

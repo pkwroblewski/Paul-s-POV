@@ -100,6 +100,8 @@ export async function generateStaticParams() {
   }));
 }
 
+const BASE_URL = 'https://paul-s-pov.vercel.app';
+
 // Generate metadata for each post
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -111,9 +113,37 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     };
   }
 
+  const articleUrl = `${BASE_URL}/writing/${slug}`;
+
   return {
     title: post.title,
     description: post.description,
+    alternates: {
+      canonical: articleUrl,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: articleUrl,
+      siteName: "Paul's POV",
+      type: 'article',
+      publishedTime: post.date,
+      authors: ['Paul'],
+      images: post.featuredImage ? [
+        {
+          url: post.featuredImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: post.featuredImage ? [post.featuredImage] : [],
+    },
   };
 }
 

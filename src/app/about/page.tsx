@@ -1,18 +1,10 @@
-import { Hash } from 'lucide-react';
 import { Header, Footer, Newsletter } from '@/components/layout';
-import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About',
   description: 'An experienced professional exploring the transformational changes of AI. Sharing notes, discoveries, and lessons from the journey.',
 };
-
-const socialLinks = [
-  { label: 'Twitter / X', href: siteConfig.links.twitter || '#' },
-  { label: 'LinkedIn', href: siteConfig.links.linkedin || '#' },
-  { label: 'Email', href: `mailto:${siteConfig.author.email}` },
-];
 
 export default function AboutPage() {
   return (
@@ -53,25 +45,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Social Links */}
-            <div className="mt-12 pt-12 border-t border-white/10">
-              <h3 className="font-mono text-xs uppercase tracking-widest text-white/40 mb-6">
-                Connect Protocols
-              </h3>
-              <ul className="grid grid-cols-2 gap-4 font-mono text-sm">
-                {socialLinks.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="flex items-center gap-3 text-dust hover:text-safety transition-colors bg-void-light p-3 border border-white/5 hover:border-safety"
-                    >
-                      <Hash size={14} />
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
         

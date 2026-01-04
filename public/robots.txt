@@ -1,0 +1,9 @@
+# robots.txt for Paul's POV
+# https://paul-s-pov.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://paul-s-pov.vercel.app/sitemap.xml
+

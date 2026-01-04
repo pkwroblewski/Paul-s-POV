@@ -1,16 +1,10 @@
-import { Twitter, Linkedin, Github, Terminal } from 'lucide-react';
+import { Terminal } from 'lucide-react';
 
-const socialLinks = [
-  { icon: Twitter, label: 'X', href: '#' },
-  { icon: Linkedin, label: 'In', href: '#' },
-  { icon: Github, label: 'Git', href: '#' },
-];
-
-// TODO: Implement these pages and re-add links
-// const footerLinks = [
-//   { label: 'RSS', href: '/rss' },
-//   { label: 'Styleguide', href: '/styleguide' },
-//   { label: 'Contact', href: '/contact' },
+// TODO: Add real social links when available
+// const socialLinks = [
+//   { icon: Twitter, label: 'X', href: 'https://twitter.com/...' },
+//   { icon: Linkedin, label: 'In', href: 'https://linkedin.com/in/...' },
+//   { icon: Github, label: 'Git', href: 'https://github.com/...' },
 // ];
 
 export function Footer() {
@@ -23,21 +17,9 @@ export function Footer() {
             <Terminal size={18} className="text-safety" />
             Paul
           </h4>
-          <p className="text-dust max-w-sm mb-8 font-mono text-sm leading-relaxed">
+          <p className="text-dust max-w-sm font-mono text-sm leading-relaxed">
             Exploration of digital cognition. Building resilient interfaces for a focused future.
           </p>
-          <div className="flex gap-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                className="text-dust hover:text-safety hover:border-safety border border-white/10 p-2 transition-all"
-                aria-label={social.label}
-              >
-                <social.icon size={18} />
-              </a>
-            ))}
-          </div>
         </div>
 
         {/* Right Column */}

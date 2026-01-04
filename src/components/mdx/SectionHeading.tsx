@@ -22,13 +22,13 @@ export function SectionHeading({
     : number;
 
   return (
-    <h3 className={cn(
+    <h2 className={cn(
       'text-xl font-header font-medium text-bleach/95 mt-10 mb-4 flex items-center',
       className
     )}>
       <span className="text-safety/80 mr-2 text-base">{formattedNumber}.</span>
       {children}
-    </h3>
+    </h2>
   );
 }
 
