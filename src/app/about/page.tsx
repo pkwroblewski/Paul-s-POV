@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Hash } from 'lucide-react';
 import { Header, Footer, Newsletter } from '@/components/layout';
 import { siteConfig } from '@/config/site';
@@ -20,25 +19,10 @@ export default function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-32 pb-24 px-6 max-w-6xl mx-auto w-full animate-fade-in">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
-          {/* Portrait Image - Left on desktop, bottom on mobile */}
-          <div className="relative order-2 md:order-1 bg-void-light p-4 border border-white/10">
-            <div className="aspect-[3/4] relative overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000"
-                alt="Portrait"
-                fill
-                className="object-cover grayscale mix-blend-luminosity opacity-80 hover:opacity-100 transition-all duration-500"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              {/* Gradient overlay */}
-              <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-void-light to-transparent" />
-            </div>
-          </div>
-
-          {/* Bio Content - Right on desktop, top on mobile */}
-          <div className="flex flex-col justify-center order-1 md:order-2">
+      <main className="flex-grow pt-32 pb-24 px-6 max-w-2xl mx-auto w-full animate-fade-in">
+        <div className="flex flex-col">
+          {/* Bio Content */}
+          <div className="flex flex-col justify-center">
             {/* Section indicator */}
             <div className="flex items-center gap-3 mb-8">
               <span className="w-2 h-2 bg-safety" />
@@ -88,6 +72,23 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+        
+        {/* Visual element - abstract journey representation */}
+        <div className="mt-16 pt-12 border-t border-white/10">
+          <div className="flex items-center gap-4 font-mono text-xs text-dust">
+            <span className="text-safety">01</span>
+            <div className="h-px bg-gradient-to-r from-safety/50 via-hologram/30 to-transparent flex-grow" />
+            <span>corporate</span>
+            <div className="h-px bg-white/10 w-8" />
+            <span className="text-safety">02</span>
+            <div className="h-px bg-gradient-to-r from-safety/50 via-hologram/30 to-transparent flex-grow" />
+            <span>discovery</span>
+            <div className="h-px bg-white/10 w-8" />
+            <span className="text-safety">03</span>
+            <div className="h-px bg-gradient-to-r from-safety to-hologram flex-grow animate-pulse" />
+            <span className="text-bleach">now</span>
           </div>
         </div>
       </main>
