@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Twitter, Linkedin, Github, Terminal } from 'lucide-react';
 
 const socialLinks = [
@@ -7,11 +6,12 @@ const socialLinks = [
   { icon: Github, label: 'Git', href: '#' },
 ];
 
-const footerLinks = [
-  // { label: 'RSS', href: '/rss' },  // TODO: Implement RSS feed
-  { label: 'Styleguide', href: '/styleguide' },
-  { label: 'Contact', href: '/contact' },
-];
+// TODO: Implement these pages and re-add links
+// const footerLinks = [
+//   { label: 'RSS', href: '/rss' },
+//   { label: 'Styleguide', href: '/styleguide' },
+//   { label: 'Contact', href: '/contact' },
+// ];
 
 export function Footer() {
   return (
@@ -42,18 +42,7 @@ export function Footer() {
 
         {/* Right Column */}
         <div className="flex flex-col md:items-end justify-between">
-          <div className="flex gap-8 text-xs font-mono text-dust uppercase tracking-widest">
-            {footerLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-white hover:underline decoration-safety underline-offset-4"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <div className="mt-8 text-[10px] font-mono text-white/20 uppercase">
+          <div className="text-[10px] font-mono text-white/20 uppercase">
             © {new Date().getFullYear()} Paul. Systems Online.
           </div>
         </div>
