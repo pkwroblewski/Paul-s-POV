@@ -20,12 +20,12 @@ interface ArticleCardProps {
 export function ArticleCard({ post, variant = 'default', className }: ArticleCardProps) {
   const showImage = variant === 'featured' || (variant === 'default' && post.featuredImage);
   
-  // Format date for display (MM.DD.YY)
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-    month: '2-digit',
-    day: '2-digit',
-    year: '2-digit',
-  }).replace(/\//g, '.');
+  // Format date for display (international: 5 January 2026)
+  const formattedDate = new Date(post.date).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 
   // Format reading time
   const readingTime = String(post.readingTime).padStart(2, '0') + ' min';

@@ -155,10 +155,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound();
   }
 
-  // Format date for display - readable format like "June 21, 2023"
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-    month: 'long',
+  // Format date for display - international format like "5 January 2026"
+  const formattedDate = new Date(post.date).toLocaleDateString('en-GB', {
     day: 'numeric',
+    month: 'long',
     year: 'numeric',
   });
 

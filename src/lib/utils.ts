@@ -9,15 +9,15 @@ export function cn(...inputs: ClassValue[]): string {
 }
 
 /**
- * Formats a date string for display
+ * Formats a date string for display (international format: 5 January 2026)
  */
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    month: '2-digit',
-    day: '2-digit',
-    year: '2-digit',
-  }).replace(/\//g, '.');
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 }
 
 /**

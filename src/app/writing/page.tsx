@@ -29,10 +29,10 @@ export default function WritingPage() {
         {/* Article List */}
         <div className="space-y-10">
           {posts.map((post) => {
-            // Format date for display - human readable
-            const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-              month: 'long',
+            // Format date for display - international format
+            const formattedDate = new Date(post.date).toLocaleDateString('en-GB', {
               day: 'numeric',
+              month: 'long',
               year: 'numeric',
             });
 
