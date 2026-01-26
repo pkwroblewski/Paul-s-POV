@@ -1,0 +1,11 @@
+{
+  "id": "digital-minimalism",
+  "title": "Protocol: Digital_Minimalism",
+  "category": "global-perspectives",
+  "pillar": "global-trends",
+  "createdDate": "2023-09-28",
+  "distribution": [
+    { "platform": "website", "format": "article", "status": "published", "publishedDate": "2023-09-28" },
+    { "platform": "substack", "format": "newsletter", "status": "not-started" }
+  ]
+}

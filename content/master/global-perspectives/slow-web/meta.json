@@ -1,0 +1,11 @@
+{
+  "id": "slow-web",
+  "title": "Manifesto: Slow_Web",
+  "category": "global-perspectives",
+  "pillar": "global-trends",
+  "createdDate": "2023-07-04",
+  "distribution": [
+    { "platform": "website", "format": "article", "status": "published", "publishedDate": "2023-07-04" },
+    { "platform": "substack", "format": "newsletter", "status": "not-started" }
+  ]
+}

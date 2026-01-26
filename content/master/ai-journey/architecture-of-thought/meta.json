@@ -1,0 +1,11 @@
+{
+  "id": "architecture-of-thought",
+  "title": "System_Architecture_of_Thought",
+  "category": "ai-journey",
+  "pillar": "human-element",
+  "createdDate": "2023-08-15",
+  "distribution": [
+    { "platform": "website", "format": "article", "status": "published", "publishedDate": "2023-08-15" },
+    { "platform": "substack", "format": "newsletter", "status": "not-started" }
+  ]
+}
