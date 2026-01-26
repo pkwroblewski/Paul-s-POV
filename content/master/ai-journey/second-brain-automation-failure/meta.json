@@ -1,16 +1,11 @@
 {
-  "slug": "second-brain-automation-failure",
-  "pillar": "ai-journey",
-  "created": "2026-01-26",
-  "distribution": {
-    "website": {
-      "published": true,
-      "date": "2026-01-26"
-    },
-    "substack": {
-      "published": false,
-      "date": null,
-      "variant": "content/variants/substack/second-brain-automation-failure.md"
-    }
-  }
+  "id": "second-brain-automation-failure",
+  "title": "I Tried to Automate My Second Brain. Here's What Actually Broke.",
+  "category": "ai-journey",
+  "pillar": "ai-transition",
+  "createdDate": "2026-01-26",
+  "distribution": [
+    { "platform": "website", "format": "article", "status": "published", "publishedDate": "2026-01-26" },
+    { "platform": "substack", "format": "newsletter", "status": "ready", "variantPath": "content/variants/substack/second-brain-automation-failure.md" }
+  ]
 }
