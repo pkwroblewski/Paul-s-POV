@@ -155,3 +155,10 @@ Use conventional commit format:
 - Connect dots between macro trends
 - Topics: Geopolitics, economics, tech regulation, strategy
 
+### Publishing Checklist
+
+Before publishing any new blog post:
+1. **Verify the date** - Always confirm the current date with the user before setting the frontmatter date. Do not assume system-provided dates are correct.
+2. **Check frontmatter completeness** - Ensure all required fields are present: title, description, date, category, published, featuredImage
+3. **Run build** - Execute `npm run build` to verify MDX processing succeeds
+
