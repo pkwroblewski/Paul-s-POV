@@ -4,6 +4,10 @@ import createMDX from '@next/mdx';
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+  // Fix workspace root detection for Turbopack
+  turbopack: {
+    root: process.cwd(),
+  },
   // Enable MDX pages
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
