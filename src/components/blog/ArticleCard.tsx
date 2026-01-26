@@ -27,9 +27,6 @@ export function ArticleCard({ post, variant = 'default', className }: ArticleCar
     year: 'numeric',
   });
 
-  // Format reading time
-  const readingTime = String(post.readingTime).padStart(2, '0') + ' min';
-
   // Convert category slug to display label
   const categoryLabel = post.category
     .split('-')

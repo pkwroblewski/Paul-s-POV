@@ -3,43 +3,67 @@ import path from 'path';
 import matter from 'gray-matter';
 import type { BlogPost, Category } from '@/types';
 
-const postsDirectory = path.join(process.cwd(), 'content/posts');
+const masterDirectory = path.join(process.cwd(), 'content/master');
+const categories: Category[] = ['ai-journey', 'global-perspectives'];
 
 /**
  * Get all blog posts sorted by date (newest first)
+ * Reads from content/master/{category}/{slug}/index.mdx
  */
 export function getAllPosts(): BlogPost[] {
-  // Check if directory exists
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
+  const allPosts: BlogPost[] = [];
+
+  for (const category of categories) {
+    const categoryDir = path.join(masterDirectory, category);
+
+    if (!fs.existsSync(categoryDir)) {
+      continue;
+    }
+
+    const slugDirs = fs.readdirSync(categoryDir);
+
+    for (const slug of slugDirs) {
+      const postDir = path.join(categoryDir, slug);
+
+      // Skip if not a directory
+      if (!fs.statSync(postDir).isDirectory()) {
+        continue;
+      }
+
+      const post = getPostBySlug(slug);
+      if (post && post.published) {
+        allPosts.push(post);
+      }
+    }
   }
 
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPosts = fileNames
-    .filter((fileName) => fileName.endsWith('.mdx') && !fileName.startsWith('_'))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.mdx$/, '');
-      return getPostBySlug(slug);
-    })
-    .filter((post): post is BlogPost => post !== null && post.published);
-
   // Sort by date, newest first
-  return allPosts.sort((a, b) => 
+  return allPosts.sort((a, b) =>
     new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
 
 /**
  * Get a single blog post by slug
+ * Searches in both category directories
  */
 export function getPostBySlug(slug: string): BlogPost | null {
-  try {
-    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
-    
-    if (!fs.existsSync(fullPath)) {
-      return null;
-    }
+  for (const category of categories) {
+    const fullPath = path.join(masterDirectory, category, slug, 'index.mdx');
 
+    if (fs.existsSync(fullPath)) {
+      return readPostFile(fullPath, slug);
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Read and parse a post file
+ */
+function readPostFile(fullPath: string, slug: string): BlogPost | null {
+  try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
@@ -48,10 +72,10 @@ export function getPostBySlug(slug: string): BlogPost | null {
     const readingTime = Math.ceil(wordCount / 200);
 
     // Convert date to ISO string if it's a Date object
-    const dateValue = data.date instanceof Date 
-      ? data.date.toISOString() 
-      : typeof data.date === 'string' 
-        ? data.date 
+    const dateValue = data.date instanceof Date
+      ? data.date.toISOString()
+      : typeof data.date === 'string'
+        ? data.date
         : new Date().toISOString();
 
     return {
@@ -68,7 +92,9 @@ export function getPostBySlug(slug: string): BlogPost | null {
       readingTime,
     };
   } catch (error) {
-    console.error(`Error reading post ${slug}:`, error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error(`Error reading post ${slug}:`, error);
+    }
     return null;
   }
 }
@@ -93,13 +119,26 @@ export function getLatestPosts(): BlogPost[] {
  * Get all post slugs (for static generation)
  */
 export function getAllPostSlugs(): string[] {
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
+  const slugs: string[] = [];
+
+  for (const category of categories) {
+    const categoryDir = path.join(masterDirectory, category);
+
+    if (!fs.existsSync(categoryDir)) {
+      continue;
+    }
+
+    const entries = fs.readdirSync(categoryDir);
+
+    for (const entry of entries) {
+      const entryPath = path.join(categoryDir, entry);
+      const indexPath = path.join(entryPath, 'index.mdx');
+
+      if (fs.statSync(entryPath).isDirectory() && fs.existsSync(indexPath)) {
+        slugs.push(entry);
+      }
+    }
   }
 
-  const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames
-    .filter((fileName) => fileName.endsWith('.mdx') && !fileName.startsWith('_'))
-    .map((fileName) => fileName.replace(/\.mdx$/, ''));
+  return slugs;
 }
-
